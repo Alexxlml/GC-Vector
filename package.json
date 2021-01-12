@@ -1,0 +1,19 @@
+{
+  "name": "GC-Vector",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "mime-types": "^2.1.28",
+    "multer": "^1.4.2",
+    "xlsx": "^0.16.9"
+  }
+}

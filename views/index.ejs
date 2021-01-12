@@ -1,0 +1,47 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GC-Factor</title>
+</head>
+<body>
+    <h1>Generador de contraseñas</h1><br>
+    <p>Subir excel</p><br><br>
+    <form action="/envios" method="post" enctype="multipart/form-data">
+        <input type="file" name="excel" id="">
+        <input type="submit" value="Enviar">
+    </form><br><br>
+    <p>Introducir datos de manera individual</p>
+
+    <input id="no_colaborador" type="text" placeholder="Número de colaborador"><br>
+    <input id="nombre" type="text" placeholder="Nombre"><br>
+    <input id="puesto" type="text" placeholder="Puesto"><br><br>
+
+    <script type="text/javascript">
+        function generaPass(){
+            let puesto = document.getElementById("puesto").value;
+            let no_colaborador = document.getElementById("no_colaborador").value;
+            let nombre = document.getElementById("nombre").value;
+
+            let n = nombre.length - 1;
+            let c = no_colaborador.length - 1;
+            let p = puesto.length - 1;
+
+            let c1 = puesto[0];
+            let c2 = no_colaborador[0];
+            let c3 = nombre[0];
+            let c4 = nombre[n];
+            let c5 = nombre[2];
+            let c6 = no_colaborador[c];
+            let c7 = puesto[p];
+
+
+            let contraseña = c1 + c2 + c3 + c4 + c5 + c6 + c7;
+            document.getElementById("resultado").innerHTML = contraseña;
+        }
+    </script>
+
+<button onclick="generaPass();">Generar Contraseña</button><br><br>
+<h2 id="resultado"></h2>
+</body>
+</html>
