@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const multer = require('multer');
 const mimeTypes = require('mime-types');
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 
 let generador = require('./script.js');
 
@@ -28,8 +28,8 @@ app.get("/dexcel", (req, res) => {
 })
 
 app.post("/envios", upload.single('excel'), (req, res) => {
-    generador.genPass();
     res.redirect('/dexcel');
+    generador.genPass();
 })
 
 app.post("/download", (req, res) => {
