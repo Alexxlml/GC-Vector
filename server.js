@@ -29,10 +29,10 @@ app.get("/dexcel", (req, res) => {
 
 app.post("/envios", upload.single('excel'), (req, res) => {
     res.redirect('/dexcel');
-    generador.genPass();
 })
 
 app.post("/download", (req, res) => {
+    generador.genPass();
     res.download(__dirname + "/output-files/Contraseñas_generadas.xlsx");
 })
 
