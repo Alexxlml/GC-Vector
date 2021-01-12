@@ -31,6 +31,6 @@ function genPass() {
     var newWS = xlsx.utils.json_to_sheet(newData);
     xlsx.utils.book_append_sheet(newWB, newWS, "Contraseñas")
 
-    xlsx.writeFile(newWB, __dirname + "/output-files/Contraseñas_generadas.xlsx");
+    xlsx.writeFile(newWB, __dirname + "./output-files/Contraseñas_generadas.xlsx");
 }
 module.exports = {genPass};

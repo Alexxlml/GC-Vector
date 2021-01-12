@@ -4,7 +4,7 @@ const multer = require('multer');
 const mimeTypes = require('mime-types');
 const PORT = process.env.PORT || 8080;
 
-let generador = require('./script.js');
+let generador = require('./script');
 
 const storage = multer.diskStorage({
     destination: 'input-files/',
@@ -25,6 +25,7 @@ app.get("/", (req, res) => {
 
 app.get("/dexcel", (req, res) => {
     res.render('dexcel');
+    generador.genPass();
 })
 
 app.post("/envios", upload.single('excel'), (req, res) => {
@@ -32,8 +33,7 @@ app.post("/envios", upload.single('excel'), (req, res) => {
 })
 
 app.post("/download", (req, res) => {
-    generador.genPass();
-    res.download(__dirname + "/output-files/Contraseñas_generadas.xlsx");
+    res.download(__dirname + "./output-files/Contraseñas_generadas.xlsx");
 })
 
 app.listen(PORT, () => console.log("Server started"));
