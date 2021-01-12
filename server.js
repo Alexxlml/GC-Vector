@@ -23,9 +23,13 @@ app.get("/", (req, res) => {
     res.render('index');
 })
 
+app.get("/dexcel", (req, res) => {
+    res.render('dexcel');
+})
+
 app.post("/envios", upload.single('excel'), (req, res) => {
     generador.genPass();
-    res.render('dexcel');
+    res.redirect('/dexcel');
 })
 
 app.post("/download", (req, res) => {
